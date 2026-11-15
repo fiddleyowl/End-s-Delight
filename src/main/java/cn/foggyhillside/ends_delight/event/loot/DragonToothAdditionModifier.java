@@ -25,8 +25,8 @@ public class DragonToothAdditionModifier extends LootModifier {
 
     private final Item item;
 
-    protected DragonToothAdditionModifier(LootItemCondition[] conditionsIn, Item item) {
-        super(conditionsIn);
+    protected DragonToothAdditionModifier(LootItemCondition[] conditionsIn, int priority, Item item) {
+        super(conditionsIn, priority);
         this.item = item;
     }
 

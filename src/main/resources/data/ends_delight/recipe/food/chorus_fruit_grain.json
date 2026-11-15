@@ -1,13 +1,9 @@
 {
   "type": "farmersdelight:cutting",
   "ingredients": [
-    {
-      "item": "minecraft:chorus_fruit"
-    }
+    "minecraft:chorus_fruit"
   ],
-  "tool": {
-    "tag": "c:tools/knife"
-  },
+  "tool": "#c:tools/knife",
   "result": [
     {
       "item": {

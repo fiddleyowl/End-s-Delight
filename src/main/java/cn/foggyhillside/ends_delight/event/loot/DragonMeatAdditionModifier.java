@@ -24,8 +24,8 @@ public class DragonMeatAdditionModifier extends LootModifier {
 
     private final Item item;
 
-    protected DragonMeatAdditionModifier(LootItemCondition[] conditionsIn, Item item) {
-        super(conditionsIn);
+    protected DragonMeatAdditionModifier(LootItemCondition[] conditionsIn, int priority, Item item) {
+        super(conditionsIn, priority);
         this.item = item;
     }
 

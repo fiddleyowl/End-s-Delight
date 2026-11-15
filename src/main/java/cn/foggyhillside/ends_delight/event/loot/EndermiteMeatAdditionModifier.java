@@ -24,8 +24,8 @@ public class EndermiteMeatAdditionModifier extends LootModifier {
 
     private final Item item;
 
-    protected EndermiteMeatAdditionModifier(LootItemCondition[] conditionsIn, Item item) {
-        super(conditionsIn);
+    protected EndermiteMeatAdditionModifier(LootItemCondition[] conditionsIn, int priority, Item item) {
+        super(conditionsIn, priority);
         this.item = item;
     }
 

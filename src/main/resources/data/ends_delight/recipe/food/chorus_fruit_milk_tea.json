@@ -1,19 +1,13 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
+    "#c:drinks/milk",
     {
-      "tag": "c:drinks/milk"
-    },
-    {
-      "type": "neoforge:compound",
       "children": [
-        {
-          "item": "minecraft:chorus_fruit"
-        },
-        {
-          "item": "ends_delight:chorus_fruit_grain"
-        }
-      ]
+        "minecraft:chorus_fruit",
+        "ends_delight:chorus_fruit_grain"
+      ],
+      "neoforge:ingredient_type": "neoforge:compound"
     }
   ],
   "result": {

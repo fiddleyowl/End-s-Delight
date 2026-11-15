@@ -1,9 +1,7 @@
 {
   "type": "minecraft:smoking",
   "category": "food",
-  "ingredient": {
-    "item": "ends_delight:liquid_dragon_egg"
-  },
+  "ingredient": "ends_delight:liquid_dragon_egg",
   "result": {
     "id": "ends_delight:fried_dragon_egg"
   },

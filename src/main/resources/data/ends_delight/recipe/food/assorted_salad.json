@@ -2,27 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:chorus_fruit"
-    },
-    {
-      "item": "ends_delight:chorus_succulent"
-    },
-    {
-      "item": "minecraft:crimson_fungus"
-    },
-    {
-      "item": "minecraft:warped_fungus"
-    },
-    {
-      "tag": "c:crops/cabbage"
-    },
-    {
-      "tag": "c:crops/tomato"
-    },
-    {
-      "item": "minecraft:shulker_shell"
-    }
+    "minecraft:chorus_fruit",
+    "ends_delight:chorus_succulent",
+    "minecraft:crimson_fungus",
+    "minecraft:warped_fungus",
+    "#c:crops/cabbage",
+    "#c:crops/tomato",
+    "minecraft:shulker_shell"
   ],
   "result": {
     "id": "ends_delight:assorted_salad"

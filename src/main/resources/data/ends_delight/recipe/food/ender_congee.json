@@ -1,15 +1,9 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
-    {
-      "tag": "c:crops/rice"
-    },
-    {
-      "item": "ends_delight:dried_endermite_meat"
-    },
-    {
-      "item": "ends_delight:ender_pearl_grain"
-    }
+    "#c:crops/rice",
+    "ends_delight:dried_endermite_meat",
+    "ends_delight:ender_pearl_grain"
   ],
   "container": {
     "id": "minecraft:bowl"

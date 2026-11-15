@@ -13,7 +13,7 @@
     "show_toast": false,
     "announce_to_chat": false,
     "hidden": false,
-    "background": "minecraft:textures/block/end_stone_bricks.png"
+    "background": "minecraft:block/end_stone_bricks"
   },
   "criteria": {
     "the_end": {

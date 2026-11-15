@@ -1,9 +1,7 @@
 {
   "type": "minecraft:smelting",
   "category": "misc",
-  "ingredient": {
-    "item": "minecraft:chorus_flower"
-  },
+  "ingredient": "minecraft:chorus_flower",
   "result": {
     "id": "ends_delight:dried_chorus_flower"
   },

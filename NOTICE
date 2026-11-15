@@ -1,0 +1,31 @@
+End's Delight (Unofficial NeoForge 26.1.2 Port)
+
+Original End's Delight:
+  Copyright (c) 2022 FoggyHillside
+  Author: FoggyHillside and upstream contributors
+  Source: https://github.com/FoggyHillside/End-s-Delight
+  Baseline: branch 1.21.1, commit 5778ed081dfb18656f04cb1ba91220bf87ea2bba
+  License: MIT; the original copyright and license text are preserved in LICENSE.
+
+Unofficial port:
+  Maintainer: fiddleyowl
+  Source: https://github.com/fiddleyowl/End-s-Delight
+  Branch: 26.1.2-neoforge
+  Changes: Java 25 and NeoForge 26.1.2 build configuration, compatible Java APIs,
+  consumable components, tool materials, block interactions, teleport and loot
+  hooks, stove rendering, recipe and client resources, and development GameTests.
+  Port modifications are distributed under the MIT License in LICENSE.
+  This fork is not an official release by FoggyHillside or the Farmer's Delight authors.
+
+Third-party build tooling:
+  The Gradle wrapper (gradlew, gradlew.bat, gradle/wrapper/gradle-wrapper.jar)
+  retains its Apache License 2.0 notices. The license is reproduced in
+  licenses/Gradle-Apache-2.0.txt and is also included in the wrapper jar.
+  The wrapper is build tooling and is not included in the mod jars.
+
+Runtime dependencies:
+  NeoForge and Farmer's Delight 26 Neo Ver are separate dependencies, not bundled
+  in the mod jars. Their respective authorship and licenses remain applicable.
+  Farmer's Delight: https://github.com/vectorwing/FarmersDelight
+  Farmer's Delight 26 Neo Ver, maintained by BuaichiZY:
+  https://www.curseforge.com/minecraft/mc-mods/farmers-delight-26-neo-ver

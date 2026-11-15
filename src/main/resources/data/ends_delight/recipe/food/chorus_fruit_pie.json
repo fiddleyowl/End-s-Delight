@@ -7,29 +7,15 @@
     "505"
   ],
   "key": {
-    "0": {
-      "item": "farmersdelight:pie_crust"
-    },
-    "1": {
-      "item": "minecraft:wheat"
-    },
-    "2": {
-      "item": "minecraft:poppy"
-    },
+    "0": "farmersdelight:pie_crust",
+    "1": "minecraft:wheat",
+    "2": "minecraft:poppy",
     "3": [
-      {
-        "item": "minecraft:chorus_fruit"
-      },
-      {
-        "item": "ends_delight:chorus_fruit_grain"
-      }
+      "minecraft:chorus_fruit",
+      "ends_delight:chorus_fruit_grain"
     ],
-    "4": {
-      "item": "ends_delight:dried_chorus_flower"
-    },
-    "5": {
-      "item": "minecraft:sugar"
-    }
+    "4": "ends_delight:dried_chorus_flower",
+    "5": "minecraft:sugar"
   },
   "result": {
     "id": "ends_delight:chorus_fruit_pie"

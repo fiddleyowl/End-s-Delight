@@ -23,8 +23,8 @@ public class ShulkerMeatAdditionModifier extends LootModifier {
 
     private final Item item;
 
-    protected ShulkerMeatAdditionModifier(LootItemCondition[] conditionsIn, Item item) {
-        super(conditionsIn);
+    protected ShulkerMeatAdditionModifier(LootItemCondition[] conditionsIn, int priority, Item item) {
+        super(conditionsIn, priority);
         this.item = item;
     }
 

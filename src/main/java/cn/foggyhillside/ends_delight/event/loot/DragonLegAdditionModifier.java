@@ -24,8 +24,8 @@ public class DragonLegAdditionModifier extends LootModifier {
 
     private final Item item;
 
-    public DragonLegAdditionModifier(LootItemCondition[] conditionsIn, Item item) {
-        super(conditionsIn);
+    public DragonLegAdditionModifier(LootItemCondition[] conditionsIn, int priority, Item item) {
+        super(conditionsIn, priority);
         this.item = item;
     }
 

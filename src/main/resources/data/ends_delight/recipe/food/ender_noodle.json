@@ -1,42 +1,24 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
+    "#c:foods/shulker_meat",
+    "ends_delight:dried_endermite_meat",
+    "ends_delight:chorus_sauce",
     {
-      "tag": "c:foods/shulker_meat"
-    },
-    {
-      "item": "ends_delight:dried_endermite_meat"
-    },
-    {
-      "item": "ends_delight:chorus_sauce"
-    },
-    {
-      "type": "neoforge:compound",
       "children": [
-        {
-          "item": "minecraft:warped_fungus"
-        },
-        {
-          "item": "minecraft:crimson_fungus"
-        },
-        {
-          "item": "minecraft:brown_mushroom"
-        },
-        {
-          "item": "minecraft:red_mushroom"
-        }
-      ]
+        "minecraft:warped_fungus",
+        "minecraft:crimson_fungus",
+        "minecraft:brown_mushroom",
+        "minecraft:red_mushroom"
+      ],
+      "neoforge:ingredient_type": "neoforge:compound"
     },
     {
-      "type": "neoforge:compound",
       "children": [
-        {
-          "tag": "c:foods/dough"
-        },
-        {
-          "tag": "c:foods/pasta"
-        }
-      ]
+        "#c:foods/dough",
+        "#c:foods/pasta"
+      ],
+      "neoforge:ingredient_type": "neoforge:compound"
     }
   ],
   "result": {

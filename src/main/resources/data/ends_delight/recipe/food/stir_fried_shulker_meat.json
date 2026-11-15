@@ -1,26 +1,16 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
+    "#c:crops/onion",
+    "#c:crops/tomato",
     {
-      "tag": "c:crops/onion"
-    },
-    {
-      "tag": "c:crops/tomato"
-    },
-    {
-      "type": "neoforge:compound",
       "children": [
-        {
-          "item": "minecraft:chorus_fruit"
-        },
-        {
-          "item": "ends_delight:chorus_fruit_grain"
-        }
-      ]
+        "minecraft:chorus_fruit",
+        "ends_delight:chorus_fruit_grain"
+      ],
+      "neoforge:ingredient_type": "neoforge:compound"
     },
-    {
-      "tag": "c:foods/shulker_meat"
-    }
+    "#c:foods/shulker_meat"
   ],
   "result": {
     "id": "ends_delight:stir_fried_shulker_meat"

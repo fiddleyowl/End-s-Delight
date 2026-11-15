@@ -23,10 +23,10 @@ public class EndermanGristleTransport {
         if (level.hasChunkAt(blockpos)) {
             boolean flag1 = false;
 
-            while (!flag1 && blockpos.getY() > (d1 < level.getMinBuildHeight() ? level.getMinBuildHeight() : d1)) {
+            while (!flag1 && blockpos.getY() > (d1 < level.getMinY() ? level.getMinY() : d1)) {
                 BlockPos blockpos1 = blockpos.below();
                 BlockState blockstate = level.getBlockState(blockpos1);
-                if (blockstate.blocksMotion() && d3 < (double) (level.getMinBuildHeight() + ((ServerLevel) level).getLogicalHeight() - 2)) {
+                if (blockstate.blocksMotion() && d3 < (double) (level.getMinY() + ((ServerLevel) level).getLogicalHeight() - 2)) {
                     flag1 = true;
                 } else {
                     d3--;
@@ -42,9 +42,9 @@ public class EndermanGristleTransport {
                 if (flag) {
                     if (entity instanceof Player && !((Player) entity).isCreative()) {
                         if (entity.getHealth() < (entity.getMaxHealth() * 0.3F)) {
-                            entity.hurt(ModDamageTypes.getSimpleDamageSource(level, EDModDamageTypes.ENDERMAN_GRISTLE_TELEPORT), entity.getHealth() * 1.5F);
+                            entity.hurtServer((ServerLevel) level, ModDamageTypes.getSimpleDamageSource(level, EDModDamageTypes.ENDERMAN_GRISTLE_TELEPORT), entity.getHealth() * 1.5F);
                         } else {
-                            entity.hurt(ModDamageTypes.getSimpleDamageSource(level, EDModDamageTypes.ENDERMAN_GRISTLE_TELEPORT), entity.getHealth() * damage);
+                            entity.hurtServer((ServerLevel) level, ModDamageTypes.getSimpleDamageSource(level, EDModDamageTypes.ENDERMAN_GRISTLE_TELEPORT), entity.getHealth() * damage);
                         }
                     }
                 }

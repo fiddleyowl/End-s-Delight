@@ -1,15 +1,9 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
-    {
-      "tag": "c:foods/shulker_meat"
-    },
-    {
-      "item": "ends_delight:dried_chorus_flower"
-    },
-    {
-      "item": "ends_delight:chorus_succulent"
-    }
+    "#c:foods/shulker_meat",
+    "ends_delight:dried_chorus_flower",
+    "ends_delight:chorus_succulent"
   ],
   "result": {
     "id": "ends_delight:shulker_soup"

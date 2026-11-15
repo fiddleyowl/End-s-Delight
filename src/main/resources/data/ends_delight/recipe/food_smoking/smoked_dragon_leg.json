@@ -1,9 +1,7 @@
 {
   "type": "minecraft:smoking",
   "category": "food",
-  "ingredient": {
-    "item": "ends_delight:dragon_leg"
-  },
+  "ingredient": "ends_delight:dragon_leg",
   "result": {
     "id": "ends_delight:smoked_dragon_leg"
   },

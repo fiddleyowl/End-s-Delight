@@ -2,27 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ends_delight:chorus_sauce"
-    },
-    {
-      "tag": "c:foods/roasted_dragon_meat"
-    },
-    {
-      "tag": "c:crops/tomato"
-    },
-    {
-      "item": "minecraft:warped_fungus"
-    },
-    {
-      "item": "minecraft:crimson_fungus"
-    },
-    {
-      "item": "minecraft:chorus_fruit"
-    },
-    {
-      "item": "minecraft:bowl"
-    }
+    "ends_delight:chorus_sauce",
+    "#c:foods/roasted_dragon_meat",
+    "#c:crops/tomato",
+    "minecraft:warped_fungus",
+    "minecraft:crimson_fungus",
+    "minecraft:chorus_fruit",
+    "minecraft:bowl"
   ],
   "result": {
     "id": "ends_delight:roasted_dragon_steak",

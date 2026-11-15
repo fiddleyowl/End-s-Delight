@@ -1,30 +1,20 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
+    "minecraft:sugar",
     {
-      "item": "minecraft:sugar"
+      "children": [
+        "minecraft:chorus_fruit",
+        "ends_delight:chorus_fruit_grain"
+      ],
+      "neoforge:ingredient_type": "neoforge:compound"
     },
     {
-      "type": "neoforge:compound",
       "children": [
-        {
-          "item": "minecraft:chorus_fruit"
-        },
-        {
-          "item": "ends_delight:chorus_fruit_grain"
-        }
-      ]
-    },
-    {
-      "type": "neoforge:compound",
-      "children": [
-        {
-          "item": "minecraft:chorus_fruit"
-        },
-        {
-          "item": "ends_delight:chorus_fruit_grain"
-        }
-      ]
+        "minecraft:chorus_fruit",
+        "ends_delight:chorus_fruit_grain"
+      ],
+      "neoforge:ingredient_type": "neoforge:compound"
     }
   ],
   "result": {

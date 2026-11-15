@@ -1,2 +1,40 @@
-# End-s-Delight
-The source code of the minecraft mod End's Delight.
+# End's Delight — NeoForge 26.1.2
+
+An unofficial port of [End's Delight by FoggyHillside](https://github.com/FoggyHillside/End-s-Delight), a culinary addon for Farmer's Delight. This branch starts from upstream's Minecraft 1.21.1 version 2.6.1. The original author, credits, mod ID, and content IDs are retained.
+
+Maintained by **fiddleyowl** in [fiddleyowl/End-s-Delight](https://github.com/fiddleyowl/End-s-Delight), on branch `26.1.2-neoforge`. The upstream baseline is commit [`5778ed0`](https://github.com/FoggyHillside/End-s-Delight/commit/5778ed081dfb18656f04cb1ba91220bf87ea2bba).
+
+## Requirements
+
+- Minecraft **26.1.2** and NeoForge **26.1.2.126** or newer within the 26.1.2 series.
+- Java **25**.
+- [Farmer's Delight 26 Neo Ver **1.3.3-fix8** by BuaichiZY](https://www.curseforge.com/minecraft/mc-mods/farmers-delight-26-neo-ver/files/9236195). The build pins CurseForge project `1699768`, file `9236195`; this dependency must also be installed separately when playing.
+
+The original 1.21.1 Farmer's Delight jar is incompatible with this branch.
+
+## Build and development
+
+```sh
+./gradlew build
+./gradlew runClient
+./gradlew runServer
+./gradlew runGameTestServer
+```
+
+The Gradle 9.9.0 wrapper is included. Set `JAVA_HOME` to a Java 25 JDK if your default Java is older. Build output is `build/libs/ends_delight-2.6.1+neoforge.26.1.2.jar`; the sources jar is in the same directory.
+
+`runGameTestServer` uses an isolated `run-gametest/` directory. Tests in `src/gametest/` are available in development runs and excluded from the distributed jars.
+
+## Port status
+
+The port updates the build toolchain, registry IDs, tool materials and repair tags, consumable effects and durations, container remainders, block interaction and teleport APIs, loot modifier codecs, recipe ingredients, advancement background, and client item definitions. The end stove uses Farmer's Delight's current renderer with its original six slots and item offsets. Eating placed chorus pie delegates to the slice item's consume hook to avoid duplicate teleports.
+
+Automated GameTests cover all 75 recipes, all 12 advancements, loot modifier loading, food effects and bowl return, drinking animation and fast consumption, knife durability and repair ingredients, single-trigger pie teleport, stove inventory and cooking, and gristle teleport health cost.
+
+Client visuals, survival play, naturally generated chorus succulents, entity drops, multiplayer synchronization, and a standalone production server still need manual verification. A successful build and development GameTest run do not establish full gameplay compatibility. Use a new test world for initial playtesting; this port has not been validated against existing saves.
+
+## License and attribution
+
+End's Delight is licensed under the [MIT License](LICENSE), copyright (c) 2022 FoggyHillside. The original copyright and complete license text are preserved unchanged; port modifications are also distributed under MIT. Both the runtime and sources jars include `META-INF/LICENSE` and `META-INF/NOTICE`. See [NOTICE](NOTICE) for upstream provenance, port changes, and dependency attribution.
+
+The Gradle wrapper retains its Apache License 2.0 notices; a copy is available at [licenses/Gradle-Apache-2.0.txt](licenses/Gradle-Apache-2.0.txt). This community port is not an official release by the original author. Farmer's Delight and its 26.1.2 port retain their respective authorship and licensing and are installed separately.

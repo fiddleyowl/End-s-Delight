@@ -1,9 +1,7 @@
 {
   "type": "minecraft:smoking",
   "category": "food",
-  "ingredient": {
-    "item": "ends_delight:shulker_meat_slice"
-  },
+  "ingredient": "ends_delight:shulker_meat_slice",
   "result": {
     "id": "ends_delight:roasted_shulker_meat_slice"
   },

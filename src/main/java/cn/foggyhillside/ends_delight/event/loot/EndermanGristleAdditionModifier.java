@@ -23,8 +23,8 @@ public class EndermanGristleAdditionModifier extends LootModifier {
 
     private final Item item;
 
-    protected EndermanGristleAdditionModifier(LootItemCondition[] conditionsIn, Item item) {
-        super(conditionsIn);
+    protected EndermanGristleAdditionModifier(LootItemCondition[] conditionsIn, int priority, Item item) {
+        super(conditionsIn, priority);
         this.item = item;
     }
 

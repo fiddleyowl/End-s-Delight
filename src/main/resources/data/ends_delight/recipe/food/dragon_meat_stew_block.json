@@ -1,32 +1,18 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
+    "#c:foods/raw_dragon_meat",
     {
-      "tag": "c:foods/raw_dragon_meat"
-    },
-    {
-      "type": "neoforge:compound",
       "children": [
-        {
-          "item": "minecraft:chorus_fruit"
-        },
-        {
-          "item": "ends_delight:chorus_fruit_grain"
-        }
-      ]
+        "minecraft:chorus_fruit",
+        "ends_delight:chorus_fruit_grain"
+      ],
+      "neoforge:ingredient_type": "neoforge:compound"
     },
-    {
-      "item": "ends_delight:chorus_succulent"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "tag": "c:crops/tomato"
-    }
+    "ends_delight:chorus_succulent",
+    "minecraft:carrot",
+    "minecraft:potato",
+    "#c:crops/tomato"
   ],
   "result": {
     "id": "ends_delight:dragon_meat_stew_block"

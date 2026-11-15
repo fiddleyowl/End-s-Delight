@@ -3,11 +3,13 @@ package cn.foggyhillside.ends_delight.block;
 import cn.foggyhillside.ends_delight.registry.ModItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -16,7 +18,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -174,17 +177,17 @@ public class DragonLegBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
-    protected BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos) {
+    protected BlockState updateShape(BlockState pState, LevelReader pLevel, ScheduledTickAccess ticks, BlockPos pPos, Direction pDirection, BlockPos pNeighborPos, BlockState pNeighborState, RandomSource random) {
         if (pDirection == getNeighbourDirection(pState.getValue(PART), pState.getValue(FACING))) {
             return pState.canSurvive(pLevel, pPos) && pNeighborState.is(this) && pNeighborState.getValue(PART) != pState.getValue(PART) ? pState : Blocks.AIR.defaultBlockState();
         } else {
-            return !pState.canSurvive(pLevel, pPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
+            return !pState.canSurvive(pLevel, pPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pLevel, ticks, pPos, pDirection, pNeighborPos, pNeighborState, random);
         }
     }
 
     @Override
     public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-        if (!pLevel.isClientSide && pPlayer.isCreative()) {
+        if (!pLevel.isClientSide() && pPlayer.isCreative()) {
             BedPart bedpart = pState.getValue(PART);
             if (bedpart == BedPart.FOOT) {
                 BlockPos blockpos = pPos.relative(getNeighbourDirection(bedpart, pState.getValue(FACING)));
@@ -217,16 +220,17 @@ public class DragonLegBlock extends HorizontalDirectionalBlock {
     @Override
     public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
         super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
-        if (!pLevel.isClientSide) {
+        if (!pLevel.isClientSide()) {
             BlockPos facingPos = pPos.relative(pState.getValue(FACING));
             pLevel.setBlock(facingPos, pState.setValue(PART, BedPart.FOOT), 3);
-            pLevel.blockUpdated(pPos, Blocks.AIR);
+            pLevel.updateNeighborsAt(pPos, Blocks.AIR);
             pState.updateNeighbourShapes(pLevel, pPos, 3);
         }
     }
 
     @Override
-    public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
+    public InteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
+        if (pLevel.isClientSide()) return InteractionResult.SUCCESS;
         int servings = pState.getValue(SERVINGS);
         ItemStack heldStack = pPlayer.getItemInHand(pHand);
 
@@ -234,7 +238,7 @@ public class DragonLegBlock extends HorizontalDirectionalBlock {
             if (heldStack.is(Items.BOWL)) {
                 return takeServing(pLevel, pPos, pState, pPlayer, pHand, ModItems.DRAGON_LEG_WITH_SAUCE.get());
             } else {
-                pPlayer.displayClientMessage(TextUtils.block("feast.use_container", new ItemStack(Items.BOWL).getHoverName()), true);
+                if (pPlayer instanceof ServerPlayer serverPlayer) serverPlayer.sendSystemMessage(TextUtils.block("feast.use_container", new ItemStack(Items.BOWL).getHoverName()), true);
             }
         }
         if (servings == 0) {
@@ -242,12 +246,12 @@ public class DragonLegBlock extends HorizontalDirectionalBlock {
             pLevel.destroyBlock(pPos, true);
         }
         else {
-            pPlayer.displayClientMessage(TextUtils.block("feast.use_container", new ItemStack(Items.BOWL).getHoverName()), true);
+            if (pPlayer instanceof ServerPlayer serverPlayer) serverPlayer.sendSystemMessage(TextUtils.block("feast.use_container", new ItemStack(Items.BOWL).getHoverName()), true);
         }
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
-    protected ItemInteractionResult takeServing(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer, InteractionHand pHand, Item serving) {
+    protected InteractionResult takeServing(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer, InteractionHand pHand, Item serving) {
         int servings = pState.getValue(SERVINGS);
         BedPart part = pState.getValue(PART);
         BlockPos pairPos = pPos.relative(getNeighbourDirection(part, pState.getValue(FACING)));
@@ -264,7 +268,7 @@ public class DragonLegBlock extends HorizontalDirectionalBlock {
             pPlayer.drop(new ItemStack(serving), false);
         }
         pLevel.playSound(null, pPos, SoundEvents.ARMOR_EQUIP_GENERIC.value(), SoundSource.BLOCKS, 1.0F, 1.0F);
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
 }

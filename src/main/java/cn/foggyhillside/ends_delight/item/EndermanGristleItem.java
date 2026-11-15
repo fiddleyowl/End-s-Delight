@@ -8,7 +8,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Fox;
+import net.minecraft.world.entity.animal.fox.Fox;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -40,15 +40,16 @@ public class EndermanGristleItem extends ConsumableItem {
         this.shift = shift;
     }
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
+        ItemStack consumedStack = pStack.copy();
         ItemStack itemstack = super.finishUsingItem(pStack, pLevel, pEntityLiving);
         if (EDCommonConfigs.GRISTLE_TELEPORT.get() && (!shift || pEntityLiving.isShiftKeyDown())) {
-            if (!pLevel.isClientSide) {
+            if (!pLevel.isClientSide()) {
                 for (int i = 0; i < 16; i++) {
                     double d0 = pEntityLiving.getX() + (pEntityLiving.getRandom().nextDouble() - 0.5) * 8.0;
                     double d1 = Mth.clamp(
                             pEntityLiving.getY() + (double) (pEntityLiving.getRandom().nextInt(EDCommonConfigs.TELEPORT_RANGE_SIZE.get()) + EDCommonConfigs.TELEPORT_MAX_HEIGHT.get() + 1 - EDCommonConfigs.TELEPORT_RANGE_SIZE.get()),
-                            (double) pLevel.getMinBuildHeight(),
-                            (double) (pLevel.getMinBuildHeight() + ((ServerLevel) pLevel).getLogicalHeight() - 1)
+                            (double) pLevel.getMinY(),
+                            (double) (pLevel.getMinY() + ((ServerLevel) pLevel).getLogicalHeight() - 1)
                     );
                     double d2 = pEntityLiving.getZ() + (pEntityLiving.getRandom().nextDouble() - 0.5) * 8.0;
                     if (pEntityLiving.isPassenger()) {
@@ -56,7 +57,7 @@ public class EndermanGristleItem extends ConsumableItem {
                     }
 
                     Vec3 vec3 = pEntityLiving.position();
-                    net.neoforged.neoforge.event.entity.EntityTeleportEvent.ChorusFruit event = net.neoforged.neoforge.event.EventHooks.onChorusFruitTeleport(pEntityLiving, d0, d1, d2);
+                    net.neoforged.neoforge.event.entity.EntityTeleportEvent.ItemConsumption event = net.neoforged.neoforge.event.EventHooks.onItemConsumptionTeleport(pEntityLiving, consumedStack, d0, d1, d2);
                     if (event.isCanceled()) return itemstack;
                     if (EndermanGristleTransport.randomTeleport(pEntityLiving, event.getTargetX(), event.getTargetY(), event.getTargetZ(), true, damage)) {
                         pLevel.gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(pEntityLiving));
@@ -78,7 +79,7 @@ public class EndermanGristleItem extends ConsumableItem {
 
                 if (pEntityLiving instanceof Player player) {
                     player.resetCurrentImpulseContext();
-                    player.getCooldowns().addCooldown(this, 20);
+                    player.getCooldowns().addCooldown(consumedStack, 20);
                 }
             }
         }

@@ -7,15 +7,9 @@
     "21 "
   ],
   "key": {
-    "0": {
-      "item": "ends_delight:chorus_fruit_grain"
-    },
-    "1": {
-      "item": "minecraft:ice"
-    },
-    "2": {
-      "item": "minecraft:stick"
-    }
+    "0": "ends_delight:chorus_fruit_grain",
+    "1": "minecraft:ice",
+    "2": "minecraft:stick"
   },
   "result": {
     "id": "ends_delight:chorus_fruit_popsicle"

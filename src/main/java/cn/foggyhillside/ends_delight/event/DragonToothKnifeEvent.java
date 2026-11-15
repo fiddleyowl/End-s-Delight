@@ -4,7 +4,7 @@ import cn.foggyhillside.ends_delight.EDCommonConfigs;
 import cn.foggyhillside.ends_delight.EndsDelight;
 import cn.foggyhillside.ends_delight.registry.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -24,8 +24,8 @@ public class DragonToothKnifeEvent {
             LivingEntity target = event.getEntity();
             String[] endMobs = EDCommonConfigs.END_MOBS.get().toArray(new String[0]);
             for (String endMob : endMobs) {
-                ResourceLocation id = BuiltInRegistries.ENTITY_TYPE.getKey(target.getType());
-                if (id.equals(ResourceLocation.tryParse(endMob)) && event.getSource().getEntity() instanceof LivingEntity attacker) {
+                Identifier id = BuiltInRegistries.ENTITY_TYPE.getKey(target.getType());
+                if (id.equals(Identifier.tryParse(endMob)) && event.getSource().getEntity() instanceof LivingEntity attacker) {
                     ItemStack toolStack = attacker.getItemInHand(InteractionHand.MAIN_HAND);
                     if (toolStack.is(ModItems.DRAGON_TOOTH_KNIFE.get())) {
                         event.setNewDamage(event.getNewDamage() * 3.5F);

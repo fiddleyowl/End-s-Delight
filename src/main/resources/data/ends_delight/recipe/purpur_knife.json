@@ -6,16 +6,10 @@
     "0"
   ],
   "key": {
-    "0": {
-      "item": "minecraft:popped_chorus_fruit"
-    },
+    "0": "minecraft:popped_chorus_fruit",
     "1": [
-      {
-        "item": "minecraft:popped_chorus_fruit"
-      },
-      {
-        "item": "minecraft:purpur_block"
-      }
+      "minecraft:popped_chorus_fruit",
+      "minecraft:purpur_block"
     ]
   },
   "result": {

@@ -3,28 +3,14 @@
   "category": "misc",
   "ingredients": [
     [
-      {
-        "item": "minecraft:chorus_fruit"
-      },
-      {
-        "item": "ends_delight:chorus_fruit_grain"
-      }
+      "minecraft:chorus_fruit",
+      "ends_delight:chorus_fruit_grain"
     ],
-    {
-      "item": "ends_delight:chorus_succulent"
-    },
-    {
-      "item": "ends_delight:chorus_succulent"
-    },
-    {
-      "tag": "c:crops/cabbage"
-    },
-    {
-      "tag": "c:crops/tomato"
-    },
-    {
-      "item": "minecraft:bowl"
-    }
+    "ends_delight:chorus_succulent",
+    "ends_delight:chorus_succulent",
+    "#c:crops/cabbage",
+    "#c:crops/tomato",
+    "minecraft:bowl"
   ],
   "result": {
     "id": "ends_delight:end_mixed_salad",

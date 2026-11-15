@@ -13,6 +13,6 @@ public class ModBlockEntityTypes {
     public static final DeferredRegister<BlockEntityType<?>> TILES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, EndsDelight.MODID);
 
     public static final Supplier<BlockEntityType<EndStoveBlockEntity>> END_STOVE = TILES.register("end_stove",
-            () -> BlockEntityType.Builder.of(EndStoveBlockEntity::new, ModBlocks.END_STOVE.get()).build(null));
+            () -> new BlockEntityType<>(EndStoveBlockEntity::new, ModBlocks.END_STOVE.get()));
 
 }

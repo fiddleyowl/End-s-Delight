@@ -1,24 +1,12 @@
 {
   "type": "farmersdelight:cooking",
   "ingredients": [
-    {
-      "item": "minecraft:bamboo"
-    },
-    {
-      "tag": "c:crops/rice"
-    },
-    {
-      "tag": "c:foods/raw_dragon_meat"
-    },
-    {
-      "item": "ends_delight:chorus_succulent"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "tag": "c:crops/onion"
-    }
+    "minecraft:bamboo",
+    "#c:crops/rice",
+    "#c:foods/raw_dragon_meat",
+    "ends_delight:chorus_succulent",
+    "minecraft:carrot",
+    "#c:crops/onion"
   ],
   "result": {
     "id": "ends_delight:ender_bamboo_rice",
