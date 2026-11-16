@@ -4,6 +4,10 @@ An unofficial port of [End's Delight by FoggyHillside](https://github.com/FoggyH
 
 Maintained by **fiddleyowl** in [fiddleyowl/End-s-Delight](https://github.com/fiddleyowl/End-s-Delight), on branch `26.1.2-neoforge`. The upstream baseline is commit [`5778ed0`](https://github.com/FoggyHillside/End-s-Delight/commit/5778ed081dfb18656f04cb1ba91220bf87ea2bba).
 
+The in-game display name is the original **End's Delight**, with mod ID and resource namespace `ends_delight` and Java package `cn.foggyhillside.ends_delight`. Upstream item, block, block-entity, feature, damage-type, recipe, advancement, tag, translation, and configuration names are retained. Port-specific additions are client item definitions, repair-material tags, and a wine-immunity tag; they introduce no new item/block IDs or custom saved data-component types. Fork attribution is kept in this README and NOTICE.
+
+These identifiers are preserved to support replacing this jar with a future official release for the same Minecraft version. Actual save compatibility must still be checked against that release's registry IDs, block states, and saved-data schema when it exists. This does not claim compatibility when upgrading a world from older Minecraft versions.
+
 ## Requirements
 
 - Minecraft **26.1.2** and NeoForge **26.1.2.126** or newer within the 26.1.2 series.

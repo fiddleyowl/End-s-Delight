@@ -24,9 +24,9 @@ public class ModItems {
 
     //BlockItem
     public static final DeferredItem<BlockItem> CHORUS_FRUIT_CRATE = ITEMS.register("chorus_fruit_crate",
-            id -> new BlockItem(ModBlocks.CHORUS_FRUIT_CRATE.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))));
+            id -> new BlockItem(ModBlocks.CHORUS_FRUIT_CRATE.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id))));
     public static final DeferredItem<BlockItem> END_STOVE = ITEMS.register("end_stove",
-            id -> new BlockItem(ModBlocks.END_STOVE.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))));
+            id -> new BlockItem(ModBlocks.END_STOVE.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id))));
     // KnifeItem already charges one durability in postHurtEnemy; disable the extra component charge.
     public static final DeferredItem<Item> DRAGON_EGG_SHELL_KNIFE = ITEMS.register("dragon_egg_shell_knife",
             id -> new KnifeItem(ModMaterials.DRAGON_EGG_SHELL, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).tool(ModMaterials.DRAGON_EGG_SHELL, ModTags.Blocks.MINEABLE_WITH_KNIFE, 0.5F, -2.0F, 0.0F).component(DataComponents.WEAPON, new Weapon(0))));
@@ -42,7 +42,7 @@ public class ModItems {
     public static final DeferredItem<Item> CHORUS_FRUIT_GRAIN = ITEMS.register("chorus_fruit_grain",
             id -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.CHORUS_FRUIT_GRAIN, FoodList.CHORUS_FRUIT_GRAIN_CONSUMABLE)));
     public static final DeferredItem<BlockItem> CHORUS_SUCCULENT = ITEMS.register("chorus_succulent",
-            id -> new BlockItem(ModBlocks.CHORUS_SUCCULENT.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.CHORUS_SUCCULENT, FoodList.CHORUS_SUCCULENT_CONSUMABLE)));
+            id -> new BlockItem(ModBlocks.CHORUS_SUCCULENT.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.CHORUS_SUCCULENT, FoodList.CHORUS_SUCCULENT_CONSUMABLE)));
     public static final DeferredItem<Item> DRIED_CHORUS_FLOWER = ITEMS.register("dried_chorus_flower",
             id -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))));
     public static final DeferredItem<Item> DRAGON_TOOTH = ITEMS.register("dragon_tooth",
@@ -114,7 +114,7 @@ public class ModItems {
             id -> new ChorusFlowerTeaItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.CHORUS_FLOWER_TEA, FoodList.CHORUS_FLOWER_TEA_CONSUMABLE).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE).usingConvertsTo(Items.GLASS_BOTTLE), true, true));
     //Pie
     public static final DeferredItem<BlockItem> CHORUS_FRUIT_PIE = ITEMS.register("chorus_fruit_pie",
-            id -> new BlockItem(ModBlocks.CHORUS_FRUIT_PIE.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))));
+            id -> new BlockItem(ModBlocks.CHORUS_FRUIT_PIE.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id))));
     public static final DeferredItem<Item> CHORUS_FRUIT_PIE_SLICE = ITEMS.register("chorus_fruit_pie_slice",
             id -> new ConsumableChorusItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodValues.PIE_SLICE, FoodValues.consumableFor(FoodValues.PIE_SLICE)), true, true));
     //Congee
@@ -143,19 +143,19 @@ public class ModItems {
             id -> new ConsumableItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.END_BARBECUE_STICK, FoodList.END_BARBECUE_STICK_CONSUMABLE), true));
     //Feast
     public static final DeferredItem<BlockItem> DRAGON_LEG_BLOCK = ITEMS.register("dragon_leg_with_sauce_block",
-            id -> new BlockItem(ModBlocks.DRAGON_LEG_BLOCK.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).stacksTo(1)));
+            id -> new BlockItem(ModBlocks.DRAGON_LEG_BLOCK.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id)).stacksTo(1)));
     public static final DeferredItem<Item> DRAGON_LEG_WITH_SAUCE = ITEMS.register("dragon_leg_with_sauce",
             id -> new ConsumableItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.DRAGON_LEG_WITH_SAUCE, FoodList.DRAGON_LEG_WITH_SAUCE_CONSUMABLE).stacksTo(16).craftRemainder(Items.BOWL).usingConvertsTo(Items.BOWL), true));
     public static final DeferredItem<BlockItem> STEAMED_DRAGON_EGG_BLOCK = ITEMS.register("steamed_dragon_egg_block",
-            id -> new BlockItem(ModBlocks.STEAMED_DRAGON_EGG_BLOCK.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).stacksTo(1)));
+            id -> new BlockItem(ModBlocks.STEAMED_DRAGON_EGG_BLOCK.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id)).stacksTo(1)));
     public static final DeferredItem<Item> STEAMED_DRAGON_EGG = ITEMS.register("steamed_dragon_egg",
             id -> new ConsumableItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.STEAMED_DRAGON_EGG, FoodList.STEAMED_DRAGON_EGG_CONSUMABLE).craftRemainder(Items.BOWL).usingConvertsTo(Items.BOWL).stacksTo(16), true));
     public static final DeferredItem<BlockItem> DRAGON_MEAT_STEW_BLOCK = ITEMS.register("dragon_meat_stew_block",
-            id -> new BlockItem(ModBlocks.DRAGON_MEAT_STEW_BLOCK.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).stacksTo(1)));
+            id -> new BlockItem(ModBlocks.DRAGON_MEAT_STEW_BLOCK.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id)).stacksTo(1)));
     public static final DeferredItem<Item> DRAGON_MEAT_STEW = ITEMS.register("dragon_meat_stew",
             id -> new ConsumableItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.DRAGON_MEAT_STEW, FoodList.DRAGON_MEAT_STEW_CONSUMABLE).craftRemainder(Items.BOWL).usingConvertsTo(Items.BOWL).stacksTo(16), true));
     public static final DeferredItem<BlockItem> GRILLED_SHULKER_BLOCK = ITEMS.register("grilled_shulker_block",
-            id -> new BlockItem(ModBlocks.GRILLED_SHULKER_BLOCK.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).stacksTo(1)));
+            id -> new BlockItem(ModBlocks.GRILLED_SHULKER_BLOCK.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ResourceKey.create(Registries.ITEM, id)).stacksTo(1)));
     public static final DeferredItem<Item> GRILLED_SHULKER = ITEMS.register("grilled_shulker",
             id -> new ConsumableItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.GRILLED_SHULKER, FoodList.GRILLED_SHULKER_CONSUMABLE).craftRemainder(Items.BOWL).usingConvertsTo(Items.BOWL).stacksTo(16), true));
 }

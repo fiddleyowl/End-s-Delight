@@ -22,6 +22,8 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameType;
@@ -84,6 +86,14 @@ public class PortGameTests {
 
     private static void resources(GameTestHelper helper) {
         var server = helper.getLevel().getServer();
+        for (var item : ModItems.ITEMS.getEntries()) {
+            var stack = new ItemStack(item.get());
+            var name = stack.getHoverName().getContents();
+            String prefix = item.get() instanceof BlockItem ? "block" : "item";
+            String expectedKey = prefix + "." + EndsDelight.MODID + "." + item.getId().getPath();
+            helper.assertTrue(name instanceof TranslatableContents translated && translated.getKey().equals(expectedKey),
+                    "Item name must retain its upstream translation key: " + expectedKey);
+        }
         var resources = server.getResourceManager().listResources("recipe", location ->
                 location.getNamespace().equals(EndsDelight.MODID) && location.getPath().endsWith(".json"));
         helper.assertTrue(resources.size() == 75, "Expected all 75 upstream recipes");
