@@ -1,5 +1,6 @@
 package cn.foggyhillside.ends_delight.utility;
 
+import cn.foggyhillside.ends_delight.registry.ModItems;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -15,6 +16,14 @@ import net.minecraft.world.phys.Vec3;
 
 public class Utils {
     public static void ItemChorusFruitTeleport(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
+        chorusFruitTeleport(pStack, pLevel, pEntityLiving, true);
+    }
+
+    public static void BlockChorusFruitTeleport(Level level, LivingEntity consumer) {
+        chorusFruitTeleport(new ItemStack(ModItems.CHORUS_FRUIT_PIE_SLICE.get()), level, consumer, false);
+    }
+
+    private static void chorusFruitTeleport(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, boolean itemCooldown) {
         if (!pLevel.isClientSide()) {
             for (int i = 0; i < 16; i++) {
                 double d0 = pEntityLiving.getX() + (pEntityLiving.getRandom().nextDouble() - 0.5) * 16.0;
@@ -49,7 +58,7 @@ public class Utils {
                 }
             }
 
-            if (pEntityLiving instanceof Player player) {
+            if (itemCooldown && pEntityLiving instanceof Player player) {
                 player.resetCurrentImpulseContext();
                 player.getCooldowns().addCooldown(pStack, 20);
             }

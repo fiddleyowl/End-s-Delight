@@ -17,6 +17,14 @@ Unofficial port:
   Port modifications are distributed under the MIT License in LICENSE.
   This fork is not an official release by FoggyHillside or the Farmer's Delight authors.
 
+Adapted Farmer's Delight behavior:
+  The placed-pie feeding path is adapted from Farmer's Delight's 1.21 PieBlock
+  behavior to preserve its original interactions on 26.1.2.
+  Copyright (c) 2020 vectorwing
+  Source: https://github.com/vectorwing/FarmersDelight/tree/1.21
+  License: MIT; reproduced in licenses/FarmersDelight-MIT.txt and packaged in
+  the mod and sources jars under META-INF/licenses/FarmersDelight-MIT.txt.
+
 Third-party build tooling:
   The Gradle wrapper (gradlew, gradlew.bat, gradle/wrapper/gradle-wrapper.jar)
   retains its Apache License 2.0 notices. The license is reproduced in

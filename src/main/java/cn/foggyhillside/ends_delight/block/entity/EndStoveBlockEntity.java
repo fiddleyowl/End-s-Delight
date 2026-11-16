@@ -3,10 +3,14 @@ package cn.foggyhillside.ends_delight.block.entity;
 import cn.foggyhillside.ends_delight.registry.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.phys.Vec2;
 import vectorwing.farmersdelight.common.block.AbstractStoveBlock;
 import vectorwing.farmersdelight.common.block.entity.AbstractStoveBlockEntity;
@@ -15,6 +19,14 @@ public class EndStoveBlockEntity extends AbstractStoveBlockEntity {
 
     public EndStoveBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntityTypes.END_STOVE.get(), pos, state, RecipeType.CAMPFIRE_COOKING);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        var output = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, registries);
+        output.store(super.getUpdateTag(registries));
+        output.putChild("Inventory", getItems());
+        return output.buildResult();
     }
 
     public static void particleTick(Level level, BlockPos pos, BlockState state, EndStoveBlockEntity stove) {

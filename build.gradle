@@ -115,6 +115,7 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.withType(Jar).configureEach {
     from(['LICENSE', 'NOTICE']) { into 'META-INF' }
+    from('licenses/FarmersDelight-MIT.txt') { into 'META-INF/licenses' }
 }
 
 tasks.named('wrapper', Wrapper).configure {

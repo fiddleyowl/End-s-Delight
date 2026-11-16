@@ -5,10 +5,12 @@ import cn.foggyhillside.ends_delight.FoodList;
 import cn.foggyhillside.ends_delight.item.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.component.Weapon;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import vectorwing.farmersdelight.common.FoodValues;
@@ -25,15 +27,15 @@ public class ModItems {
             id -> new BlockItem(ModBlocks.CHORUS_FRUIT_CRATE.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))));
     public static final DeferredItem<BlockItem> END_STOVE = ITEMS.register("end_stove",
             id -> new BlockItem(ModBlocks.END_STOVE.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))));
-    //knife
+    // KnifeItem already charges one durability in postHurtEnemy; disable the extra component charge.
     public static final DeferredItem<Item> DRAGON_EGG_SHELL_KNIFE = ITEMS.register("dragon_egg_shell_knife",
-            id -> new KnifeItem(ModMaterials.DRAGON_EGG_SHELL, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).tool(ModMaterials.DRAGON_EGG_SHELL, ModTags.Blocks.MINEABLE_WITH_KNIFE, 0.5F, -2.0F, 0.0F)));
+            id -> new KnifeItem(ModMaterials.DRAGON_EGG_SHELL, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).tool(ModMaterials.DRAGON_EGG_SHELL, ModTags.Blocks.MINEABLE_WITH_KNIFE, 0.5F, -2.0F, 0.0F).component(DataComponents.WEAPON, new Weapon(0))));
     public static final DeferredItem<Item> PURPUR_KNIFE = ITEMS.register("purpur_knife",
-            id -> new KnifeItem(ModMaterials.PURPUR, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).tool(ModMaterials.PURPUR, ModTags.Blocks.MINEABLE_WITH_KNIFE, 0.5F, -2.0F, 0.0F)));
+            id -> new KnifeItem(ModMaterials.PURPUR, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).tool(ModMaterials.PURPUR, ModTags.Blocks.MINEABLE_WITH_KNIFE, 0.5F, -2.0F, 0.0F).component(DataComponents.WEAPON, new Weapon(0))));
     public static final DeferredItem<Item> END_STONE_KNIFE = ITEMS.register("end_stone_knife",
-            id -> new KnifeItem(ModMaterials.END_STONE, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).tool(ModMaterials.END_STONE, ModTags.Blocks.MINEABLE_WITH_KNIFE, 0.5F, -2.0F, 0.0F)));
+            id -> new KnifeItem(ModMaterials.END_STONE, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).tool(ModMaterials.END_STONE, ModTags.Blocks.MINEABLE_WITH_KNIFE, 0.5F, -2.0F, 0.0F).component(DataComponents.WEAPON, new Weapon(0))));
     public static final DeferredItem<Item> DRAGON_TOOTH_KNIFE = ITEMS.register("dragon_tooth_knife",
-            id -> new KnifeItem(ModMaterials.DRAGON_TOOTH, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).tool(ModMaterials.DRAGON_TOOTH, ModTags.Blocks.MINEABLE_WITH_KNIFE, 0.5F, -2.0F, 0.0F)));
+            id -> new KnifeItem(ModMaterials.DRAGON_TOOTH, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).tool(ModMaterials.DRAGON_TOOTH, ModTags.Blocks.MINEABLE_WITH_KNIFE, 0.5F, -2.0F, 0.0F).component(DataComponents.WEAPON, new Weapon(0))));
     //Ingredients And Other Foods
     public static final DeferredItem<Item> ENDER_PEARL_GRAIN = ITEMS.register("ender_pearl_grain",
             id -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))));
@@ -98,7 +100,7 @@ public class ModItems {
     public static final DeferredItem<Item> CHORUS_COOKIE = ITEMS.register("chorus_cookie",
             id -> new ConsumableChorusItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.CHORUS_COOKIE, FoodList.CHORUS_COOKIE_CONSUMABLE), true));
     public static final DeferredItem<Item> CHORUS_FRUIT_POPSICLE = ITEMS.register("chorus_fruit_popsicle",
-            id -> new ChorusFruitPopsicleItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.CHORUS_FRUIT_POPSICLE, FoodList.CHORUS_FRUIT_POPSICLE_CONSUMABLE).stacksTo(16).usingConvertsTo(Items.STICK)));
+            id -> new ChorusFruitPopsicleItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.CHORUS_FRUIT_POPSICLE, FoodList.CHORUS_FRUIT_POPSICLE_CONSUMABLE).stacksTo(16)));
     //Drink
     public static final DeferredItem<Item> CHORUS_FRUIT_WINE = ITEMS.register("chorus_fruit_wine",
             id -> new ChorusFruitWineItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id)).food(FoodList.CHORUS_FRUIT_WINE, FoodList.CHORUS_FRUIT_WINE_CONSUMABLE).craftRemainder(Items.GLASS_BOTTLE).usingConvertsTo(Items.GLASS_BOTTLE).stacksTo(16)));
